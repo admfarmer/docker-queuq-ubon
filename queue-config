@@ -1,14 +1,14 @@
-DB_HOST=192.168.88.10
-DB_PORT=3306
+DB_HOST=10.0.0.129
+DB_PORT=3310
 DB_NAME=queue
 DB_USER=root
-DB_PASSWORD=##q4u##
+DB_PASSWORD=212224236
 
-DBHIS_HOST=192.168.88.10
-DBHIS_PORT=3306
-DBHIS_NAME=universal
+DBHIS_HOST=10.0.0.129
+DBHIS_PORT=3310
+DBHIS_NAME=hi
 DBHIS_USER=root
-DBHIS_PASSWORD=##q4u##
+DBHIS_PASSWORD=212224236
 
 SECRET_KEY=##q4u####q4u####q4u####q4u####q4u##
 
@@ -25,25 +25,34 @@ Q4U_NOTIFY_URL=http://mqtt.h4u.moph.go.th/v1/queue/update
 
 ###############################################################
 
-
-# HIS_TYPE: hi, hosxp, universal, ezhosp
-HIS_TYPE=universal
-
-# mysql, pg, mssql, oracledb
+# เช่น mysql, pg, mssql, oracledb
 DBHIS_TYPE=mysql
 
-QUEUE_DIGIT=3
+# HIS_TYPE เช่น hi, hosxp, homec, universal, mbase, ezhosp, dhos
+HIS_TYPE=hi
+
+QUEUE_DIGIT=4
 USE_PRIORITY_PREFIX=N
 USE_PRIORITY_QUEUE_RUNNING=N
-ZERO_PADDING=N
+ZERO_PADDING=Y
+
+# config For Hi
 SPEAK_SERVICE_POINT=Y
+USE_HIS_WAITING=Y
+USE_HIS_DMH=Y
+
+# Y = อ่านเลขคิวที่ละตัว (11 อ่านว่า หนึ่งหนึ่ง), N = อ่านเลขคิวเป็นคำพูด (11 อ่านว่า สิบเอ็ด)
+SPEAK_SINGLE=Y
+
+# config For hosxp
 USE_HIS_QUEUE=N
+
 
 INTERNAL_NOTIFY_SERVER=127.0.0.1
 
 # for web client
 # ใช้ IP ของเครื่องที่รัน docker/หรือเครื่อง server ที่รันคิว
-LOCAL_NOTIFY_SERVER=127.0.0.1
+LOCAL_NOTIFY_SERVER=10.0.0.129
 
 LOCAL_NOTIFY_USER=q4u
 LOCAL_NOTIFY_PASSWORD=##q4u##
