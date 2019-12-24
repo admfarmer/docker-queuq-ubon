@@ -24,22 +24,33 @@ Q4U_NOTIFY_TOKEN=xx
 Q4U_NOTIFY_URL=http://mqtt.h4u.moph.go.th/v1/queue/update
 
 ###############################################################
-
 # เช่น mysql, pg, mssql, oracledb
 DBHIS_TYPE=mysql
 
 # HIS_TYPE เช่น hi, hosxp, homec, universal, mbase, ezhosp, dhos
 HIS_TYPE=hi
 
+# config แสดงจำนวนคิวกีหลัก 
 QUEUE_DIGIT=4
+
+# Y = แสดงประเภทผู้รับบริการ , N = ไม่แสดงประเภทผู้รับบริการว 
 USE_PRIORITY_PREFIX=N
+
+# Y = ใช้ประเภทผู้รับบริการไปรันคิวคลินิก , N = ไม่ใช้ประเภทผู้รับบริการไปรันคิวคลินิก 
 USE_PRIORITY_QUEUE_RUNNING=N
-ZERO_PADDING=Y
+
+# Y = แสดง 0 หน้าเลขคัว , N = ไม่แสดง 0 หน้าเลขคัว 
+ZERO_PADDING=N
 
 # config For Hi
+# Y = เสียงเรียกคิวคลินิก , N = ไม่ออกเสียงเรียกคิวคลินิก 
 SPEAK_SERVICE_POINT=Y
+
+# Y = แสดงคิวรอเรียกเข้าห้องตรวจ , N = แสดงประวัติคิวเรียกเข้าห้องตรวจ 
 USE_HIS_WAITING=Y
-USE_HIS_DMH=Y
+
+# Y = แสดงคิวแบบใหม่เฉพราะที่เรียกคิว , N = แสดงแบบเก่า แสดงรายละเอียดเรียกคิว 
+USE_HIS_DMH=N
 
 # Y = อ่านเลขคิวที่ละตัว (11 อ่านว่า หนึ่งหนึ่ง), N = อ่านเลขคิวเป็นคำพูด (11 อ่านว่า สิบเอ็ด)
 SPEAK_SINGLE=Y
@@ -47,21 +58,20 @@ SPEAK_SINGLE=Y
 # config For hosxp
 USE_HIS_QUEUE=N
 
-
+# for docker container
 INTERNAL_NOTIFY_SERVER=127.0.0.1
-
 # for web client
-# ใช้ IP ของเครื่องที่รัน docker/หรือเครื่อง server ที่รันคิว
-LOCAL_NOTIFY_SERVER=10.0.0.129
-
+LOCAL_NOTIFY_SERVER=127.0.0.1
+# same user/password for internal and local notify server
 LOCAL_NOTIFY_USER=q4u
 LOCAL_NOTIFY_PASSWORD=##q4u##
-LOCAL_NOTIFY_HTTP_PORT=8888
+LOCAL_NOTIFY_HTTP_PORT=8282
 
 QUEUE_CENTER_TOPIC=queue/center
 SERVICE_POINT_TOPIC=queue/service-point
 DEPARTMENT_TOPIC=queue/department
 GROUP_TOPIC=queue/group
 
+#config port และ ip เชื่อมต่อ api
 HTTP_PORT=3002
-HTTP_ADDRESS=127.0.0.1
+HTTP_ADDRESS=0.0.0.0
